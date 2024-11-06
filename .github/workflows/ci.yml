@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest  # Use a Windows runner
+    runs-on: linux-latest  # Use a Windows runner
 
     steps:
       - name: Checkout code
