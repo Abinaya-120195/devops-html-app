@@ -21,8 +21,8 @@ jobs:
         run: |
           echo "$EC2_SSH_KEY" > private_key.pem
           chmod 600 private_key.pem
-          ssh -i private_key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST 'sudo rm -rf /var/www/html/*'
-          scp -i private_key.pem -o StrictHostKeyChecking=no index.html $EC2_USER@$EC2_HOST:/var/www/html/
+          ssh -i private_key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST 'sudo rm -rf /var/www/html/devops-html-app/*'
+          scp -i private_key.pem -o StrictHostKeyChecking=no index.html $EC2_USER@$EC2_HOST:/var/www/html/devop-html-app/
         env:
           EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
           EC2_USER: ${{ secrets.EC2_USER }}
