@@ -14,13 +14,16 @@ jobs:
 
       - name: Setup SSH
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key.pem
-          chmod 600 private_key.pem
-          ssh-keyscan -H 13.201.134.155 >> ~/.ssh/known_hosts
+          mkdir C:\Users\runneradmin\.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > C:\Users\runneradmin\.ssh\private_key.pem
+          chmod 600 C:\Users\runneradmin\.ssh\private_key.pem
+          ssh-keyscan -H "your-ec2-public-ip" >> C:\Users\runneradmin\.ssh\known_hosts
+        
 
       - name: Deploy files to EC2
         run: |
-          scp -i private_key.pem -o StrictHostKeyChecking=no index.html ssh -i "html-app.pem" ec2-user@ec2-13-201-134-155.ap-south-1.compute.amazonaws.com:/var/www/html/
+           
+	  scp -i C:\Users\runneradmin\.ssh\private_key.pem -o StrictHostKeyChecking=no index.html ec2-            	  user@ec2-13-201-134-155.ap-south-1.compute.amazonaws.com:/var/www/html/devops-html-app/
 
       - name: Cleanup SSH Key
-        run: rm private_key.pem
+        run: rm C:\Users\runneradmin\.ssh\private_key.pem
