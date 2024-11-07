@@ -17,7 +17,7 @@ jobs:
           mkdir C:\Users\runneradmin\.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > C:\Users\runneradmin\.ssh\private_key.pem
           chmod 600 C:\Users\runneradmin\.ssh\private_key.pem
-          ssh-keyscan -H "your-ec2-public-ip" >> C:\Users\runneradmin\.ssh\known_hosts
+          ssh-keyscan -H 13.201.134.155 >> C:\Users\runneradmin\.ssh\known_hosts
         
 
       - name: Deploy files to EC2
