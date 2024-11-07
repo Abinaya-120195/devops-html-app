@@ -22,8 +22,7 @@ jobs:
 
       - name: Deploy files to EC2
         run: |
-           
-	  scp -i C:\Users\runneradmin\.ssh\private_key.pem -o StrictHostKeyChecking=no index.html ec2-            	  user@ec2-13-201-134-155.ap-south-1.compute.amazonaws.com:/var/www/html/devops-html-app/
+          scp -i C:\Users\runneradmin\.ssh\private_key.pem -o StrictHostKeyChecking=no index.html ec2-user@ec2-13-201-134-155.ap-south-1.compute.amazonaws.com:/var/www/html/devops-html-app/           	  
 
       - name: Cleanup SSH Key
         run: rm C:\Users\runneradmin\.ssh\private_key.pem
